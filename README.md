@@ -1,4 +1,4 @@
-# insta
+# INSTA
 
 A new Flutter project.
 
