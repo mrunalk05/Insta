@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
+import 'package:insta/screens/login.dart';
 import 'package:insta/utils/colors.dart';
 import 'package:insta/utils/utils.dart';
 import 'package:insta/widgets/textfield.dart';
@@ -17,7 +18,7 @@ class _signupState extends State<signup> {
   final TextEditingController _emailcontroller = TextEditingController();
   final TextEditingController passcontroller = TextEditingController();
   final TextEditingController usercontroller = TextEditingController();
-  final TextEditingController conformcontroller = TextEditingController();
+  //final TextEditingController conformcontroller = TextEditingController();
   final TextEditingController biocontroller = TextEditingController();
   Uint8List? _image;
   bool _isloading = false;
@@ -27,7 +28,7 @@ class _signupState extends State<signup> {
     super.dispose();
     _emailcontroller.dispose();
     passcontroller.dispose();
-    conformcontroller.dispose();
+    //conformcontroller.dispose();
     usercontroller.dispose();
     biocontroller.dispose();
   }
@@ -57,6 +58,12 @@ class _signupState extends State<signup> {
     if (res != "sucess") {
       ShowSnackBar(res, context);
     }
+  }
+
+  void navigateLogin() {
+    Navigator.of(context).pushReplacement(MaterialPageRoute(
+      builder: (context) => const Login(),
+    ));
   }
 
   Widget build(BuildContext context) {
@@ -126,15 +133,15 @@ class _signupState extends State<signup> {
             const SizedBox(
               height: 24,
             ),
-            TextFieldInput(
-              textEditingController: conformcontroller,
-              hintText: "Conform Your Password",
-              textInputType: TextInputType.text,
-              isPass: true,
-            ),
-            const SizedBox(
-              height: 24,
-            ),
+            // TextFieldInput(
+            //   textEditingController: conformcontroller,
+            //   hintText: "Conform Your Password",
+            //   textInputType: TextInputType.text,
+            //   isPass: true,
+            // ),
+            // const SizedBox(
+            //   height: 24,
+            // ),
             InkWell(
               onTap: signUpUser,
               // print(res);
@@ -166,10 +173,10 @@ class _signupState extends State<signup> {
                   padding: const EdgeInsets.symmetric(vertical: 8),
                 ),
                 GestureDetector(
-                  onTap: () {},
+                  onTap: navigateLogin,
                   child: Container(
                     child: Text(
-                      "Sign In",
+                      "Log In",
                       style: TextStyle(fontWeight: FontWeight.bold),
                     ),
                     padding: const EdgeInsets.symmetric(vertical: 8),
