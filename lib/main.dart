@@ -7,6 +7,7 @@ import 'package:insta/responsive/web.dart';
 import 'package:insta/screens/login.dart';
 import 'package:insta/utils/colors.dart';
 import 'package:insta/responsive/responsive.dart';
+import 'package:insta/resources/auth_methods.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
