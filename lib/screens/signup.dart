@@ -6,6 +6,9 @@ import 'package:insta/utils/utils.dart';
 import 'package:insta/widgets/textfield.dart';
 import 'package:insta/resources/auth_methods.dart';
 import 'dart:typed_data';
+import 'package:insta/responsive/mobile.dart';
+import 'package:insta/responsive/responsive.dart';
+import 'package:insta/responsive/web.dart';
 
 class signup extends StatefulWidget {
   const signup({Key? key}) : super(key: key);
@@ -57,6 +60,12 @@ class _signupState extends State<signup> {
 
     if (res != "sucess") {
       ShowSnackBar(res, context);
+    }
+    else{
+      Navigator.of(context).pushReplacement(MaterialPageRoute(builder: (context)=>
+      const  ResponsiveLayout(
+                      mobileScreenLayout: Mob(), webScreenLayout: Web(),),
+                      ));
     }
   }
 

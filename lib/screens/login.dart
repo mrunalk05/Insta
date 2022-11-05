@@ -5,6 +5,9 @@ import 'package:insta/screens/signup.dart';
 import 'package:insta/utils/colors.dart';
 import 'package:insta/utils/utils.dart';
 import 'package:insta/widgets/textfield.dart';
+import 'package:insta/responsive/mobile.dart';
+import 'package:insta/responsive/responsive.dart';
+import 'package:insta/responsive/web.dart';
 
 class Login extends StatefulWidget {
   const Login({Key? key}) : super(key: key);
@@ -34,7 +37,10 @@ class _LoginState extends State<Login> {
 
     if (res == "Sucess") {
       Navigator.of(context)
-          .pushReplacement(MaterialPageRoute(builder: ((context) => Login())));
+          .pushReplacement(MaterialPageRoute(builder: ((context) => 
+          const ResponsiveLayout(
+                     mobileScreenLayout: Mob(), webScreenLayout: Web())
+                     )));
     } else {
       ShowSnackBar(res, context);
     }

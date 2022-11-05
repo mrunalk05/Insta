@@ -49,8 +49,8 @@ class _MyAppState extends State<MyApp> {
             builder: (context, snapshot) {
               if (snapshot.connectionState == ConnectionState.active) {
                 if (snapshot.hasData) {
-                 // return const ResponsiveLayout(
-                   //   mobileScreenLayout: Mob(), webScreenLayout: Web());
+                 return const ResponsiveLayout(
+                     mobileScreenLayout: Mob(), webScreenLayout: Web());
                 } else if (snapshot.hasError) {
                   return Center(
                     child: Text('${snapshot.error}'),
